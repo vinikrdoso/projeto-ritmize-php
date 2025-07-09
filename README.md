@@ -46,6 +46,44 @@ ritmize/
    - Aulas: Histórico de presença
    - Financeiro: Pagamentos
 
+## 🚀 Instalação
+
+### Pré-requisitos
+
+- PHP 8.1 ou superior
+- MySQL 5.7 ou superior
+- Composer
+- Servidor web (Apache/Nginx)
+
+### Passos
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/vinikrdoso/projeto-ritmize-php.git
+   cd projeto-ritmize-php
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   composer install
+   ```
+
+3. **Configure o banco de dados**
+   - Crie um banco MySQL chamado `ritmize_lms`
+   - Importe o arquivo `database.sql` incluído no projeto:
+     ```bash
+     mysql -u root -p ritmize_lms < database.sql
+     ```
+   - Configure as credenciais em `system/core/Database.php`
+
+4. **Configure o servidor web**
+   - Aponte o DocumentRoot para a pasta do projeto
+   - Certifique-se que o mod_rewrite está habilitado (Apache)
+
+5. **Configure o timezone**
+   - O sistema está configurado para `Europe/Lisbon`
+   - Pode ser alterado nos arquivos .php se necessário
+
 ## 🔧 Configuração
 
 ### Banco de Dados
@@ -54,7 +92,7 @@ Edite `system/core/Database.php`:
 
 ```php
 private $host = 'localhost';
-private $dbname = 'ritmize';
+private $dbname = 'ritmize_lms';
 private $username = 'seu_usuario';
 private $password = 'sua_senha';
 ```

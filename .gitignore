@@ -6,6 +6,9 @@
 config.php
 database.php
 
+# Permitir arquivo de banco de dados do projeto
+!database.sql
+
 # Logs
 *.log
 logs/
