@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RITMIZE{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Desktop -->
+    <div class="sidebar d-none d-lg-flex" id="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="/assets/img/logo-sidebar.svg" alt="RITMIZE">
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/" class="nav-item p-xl {% if page == 'dashboard' %}active{% endif %}">
+                    <img src="/assets/img/icons/house.svg" alt="Dashboard">
+                    <span>Dashboard</span>
+                </a>
+                <a href="/financeiro.php" class="nav-item p-xl {% if page == 'financeiro' %}active{% endif %}">
+                <img src="/assets/img/icons/circle-dollar-sign.svg" alt="Financeiro">
+                <span>Financeiro</span>
+                </a>
+                <a href="/aulas.php" class="nav-item p-xl {% if page == 'aulas' %}active{% endif %}">
+                <img src="/assets/img/icons/notebook-text.svg" alt="Aulas">
+                <span>Aulas</span>
+                </a>
+            </nav>
+            
+            <!-- User Profile -->
+            <div class="sidebar-footer">
+                <a href="/perfil.php" class="nav-item p-xl {% if page == 'perfil' %}active{% endif %}">
+                    <img src="{{ aluno.foto_perfil ? '/assets/img/avatars/' ~ aluno.foto_perfil : '/assets/img/avatars/default-avatar.svg' }}" 
+                         alt="Foto do {{ aluno.nome }}" class="user-avatar">
+                    <div class="user-info">
+                        <span>{{ aluno.nome|split(' ')[0] }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Header -->
+    <div class="mobile-header d-lg-none">
+        <div class="logo">
+            <img src="/assets/img/logo-secondary.svg" alt="RITMIZE">
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileSidebar()">
+        <img src="/assets/img/icons/menu.svg" alt="RITMIZE">
+        </button>
+    </div>
+    
+    <!-- Mobile Sidebar Overlay -->
+    <div class="mobile-sidebar-overlay d-lg-none" id="mobileSidebarOverlay" onclick="toggleMobileSidebar()"></div>
+    
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar d-lg-none" id="mobileSidebar">
+        <div class="mobile-sidebar-header">
+            <div class="logo">
+                <img src="/assets/img/logo-sidebar.svg" alt="RITMIZE">
+            </div>
+            <button class="mobile-close-btn" onclick="toggleMobileSidebar()">
+            <img src="/assets/img/icons/x.svg" alt="RITMIZE">
+            </button>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="/" class="nav-item p-xl {% if page == 'dashboard' %}active{% endif %}">
+                <img src="/assets/img/icons/house.svg" alt="Dashboard">
+                <span>Dashboard</span>
+            </a>
+            <a href="/financeiro.php" class="nav-item p-xl {% if page == 'financeiro' %}active{% endif %}">
+                <img src="/assets/img/icons/circle-dollar-sign.svg" alt="Financeiro">
+                <span>Financeiro</span>
+            </a>
+            <a href="/aulas.php" class="nav-item p-xl {% if page == 'aulas' %}active{% endif %}">
+                <img src="/assets/img/icons/notebook-text.svg" alt="Aulas">
+                <span>Aulas</span>
+            </a>
+        </nav>
+        
+        <div class="mobile-user-profile">
+            <a href="/perfil.php" class="nav-item p-xl {% if page == 'perfil' %}active{% endif %}">
+                <img src="{{ aluno.foto_perfil ? '/assets/img/avatars/' ~ aluno.foto_perfil : '/assets/img/avatars/default-avatar.svg' }}" 
+                     alt="Foto do {{ aluno.nome }}" class="user-avatar">
+                <div class="user-info">
+                    <span>{{ aluno.nome|split(' ')[0] }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="content-wrapper">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/ritmize.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html> 

@@ -1,0 +1,475 @@
+/* ===== RITMIZE CSS - Baseado no Design Figma ===== */
+
+:root {
+    --primary-orange: #FF6B35;
+    --dark-bg: #2C2C2C;
+    --white: #FFFFFF;
+    --light-gray: #F8F9FA;
+    --border-gray: #E0E0E0;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --success-green: #28A745;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--light-gray);
+    overflow-x: hidden;
+}
+
+/* ===== SIDEBAR DESKTOP ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: linear-gradient(180deg, var(--primary-orange) 0%, #E55A2B 100%);
+    color: var(--white);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo i {
+    font-size: 28px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--dark-bg);
+    color: var(--white);
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--white);
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ===== MOBILE HEADER & SIDEBAR ===== */
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--primary-orange);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1001;
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1010;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--primary-orange) 0%, #E55A2B 100%);
+    color: var(--white);
+    z-index: 1020;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-sidebar.show {
+    transform: translateX(300px);
+}
+
+.mobile-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.mobile-close-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mobile-user-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    padding: 40px;
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+        padding: 80px 20px 20px;
+    }
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== DASHBOARD ESPECÍFICO ===== */
+.dashboard-header {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.dashboard-header .subtitle {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* ===== CARDS ===== */
+.dashboard-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--white);
+}
+
+.card-icon.payment {
+    background: var(--primary-orange);
+}
+
+.card-icon.class {
+    background: #6C63FF;
+}
+
+.card-icon.attendance {
+    background: #FF6B6B;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== PAYMENT CARD ===== */
+.payment-status {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.payment-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--success-green);
+    margin-bottom: 4px;
+}
+
+.payment-status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--success-green);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+/* ===== CLASS INFO ===== */
+.class-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.class-date {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ===== ATTENDANCE ===== */
+.attendance-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.attendance-bar {
+    background: #FFE5D9;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.attendance-progress {
+    background: var(--primary-orange);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.attendance-text {
+    font-size: 14px;
+    color: var(--text-light);
+    text-align: right;
+}
+
+/* ===== NOTIFICAÇÕES ===== */
+.notifications-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.notification-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    display: flex;
+    gap: 16px;
+}
+
+.notification-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notification-icon {
+    color: var(--primary-orange);
+}
+
+.notification-text {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.notification-date {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+    
+    .dashboard-card {
+        padding: 20px;
+    }
+    
+    .payment-amount {
+        font-size: 28px;
+    }
+    
+    .notification-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .notification-image {
+        width: 100%;
+        height: 120px;
+    }
+} 

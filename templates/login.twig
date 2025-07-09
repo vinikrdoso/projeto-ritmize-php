@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RITMIZE</title>
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/login.css" rel="stylesheet">
+</head>
+<body class="login-page">
+    
+    <!-- Desktop Layout -->
+    <div class="login-container desktop-layout">
+        <!-- Left Side - Orange with Logo -->
+        <div class="login-left">
+            <div class="logo-section">
+                <div class="logo-atabaque">
+                    <img src="/assets/img/logo-vertical.svg" alt="RITMIZE Logo">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Login Form -->
+        <div class="login-right">
+            <div class="login-form-container">
+                <div class="login-header">
+                <h2 class="heading-1 login-title">LOGIN</h2>
+                    <p class="login-subtitle">Para acessar a plataforma, faça login com o seu email</p>
+                </div>
+                
+                {% if erro %}
+                    <div class="error-message">
+                        {{ erro }}
+                    </div>
+                {% endif %}
+                
+                <form method="POST" class="login-form">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               class="form-input" 
+                               placeholder="example@mail.com"
+                               value="{{ email }}" 
+                               required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" 
+                               id="senha" 
+                               name="senha" 
+                               class="form-input" 
+                               placeholder="*********"
+                               required>
+                    </div>
+                    
+                    <button type="submit" class="btn-entrar button-text">ENTRAR</button>
+                    
+                    <div class="divider">
+                      <br />
+                    </div>
+                    
+                    <button type="button" class="btn-google">
+                        <img src="/assets/img/icons/google.svg" alt="Google">
+                        Entrar com google
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Ao clicar em continuar, você aceita nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Layout -->
+    <div class="login-container mobile-layout">
+        <!-- Mobile Header -->
+        <div class="login-mobile-header">
+            <div class="mobile-logo">
+                <img src="/assets/img/logo-sidebar.svg" alt="RITMIZE">
+            </div>
+        </div>
+        
+        <!-- Mobile Form -->
+        <div class="mobile-form-container">
+            <div class="login-header">
+                <h2 class="heading-1 login-title">LOGIN</h2>
+                <p class="login-subtitle">Para acessar a plataforma, faça login com o seu email</p>
+            </div>
+            
+            {% if erro %}
+                <div class="error-message">
+                    {{ erro }}
+                </div>
+            {% endif %}
+            
+            <form method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="email-mobile" class="form-label">Email</label>
+                    <input type="email" 
+                           id="email-mobile" 
+                           name="email" 
+                           class="form-input" 
+                           placeholder="example@mail.com"
+                           value="{{ email }}" 
+                           required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha-mobile" class="form-label">Senha</label>
+                    <input type="password" 
+                           id="senha-mobile" 
+                           name="senha" 
+                           class="form-input" 
+                           placeholder="*********"
+                           required>
+                </div>
+                
+                <button type="submit" class="btn-entrar">ENTRAR</button>
+                
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <button type="button" class="btn-google">
+                    <img src="/assets/img/icons/google.svg" alt="Google">
+                    Entrar com google
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Ao clicar em continuar, você aceita nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html> 

@@ -1,0 +1,131 @@
+{% extends "base.twig" %}
+
+{% block title %}Dashboard - RITMIZE{% endblock %}
+
+{% block content %}
+<!-- Dashboard Header -->
+<div class="dashboard-header">
+    <h1 class="heading-1">OLÁ, {{ aluno.nome|split(' ')[0]|upper }}! 
+        {% if notificacoes|length > 0 %}VOCÊ TEM NOTIFICAÇÕES{% endif %}
+    </h1>
+</div>
+
+<!-- Dashboard Grid -->
+<div class="dashboard-grid">
+    <!-- Container principal dos cards -->
+    <div class="dashboard-cards-container">
+        <!-- PAGAMENTOS Section - 1/3 da largura no desktop -->
+        <div class="dashboard-section-payments">
+            <div class="dashboard-card-wrapper">
+                <div class="heading-2">Pagamentos</div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-header-infos">
+                            <h3 class="heading-3">Mensalidade</h3>
+                            <span class="paragraph-sm">Status do pagamento</span>
+                        </div>
+
+                        <img class="card-icon" src="/assets/img/icons/circle-dollar-sign.svg" alt="Pagamento">
+                    </div>
+                            
+                    {% if mensalidade_atual %}
+                    <div class="payment-status-wrapper">
+                        {% if mensalidade_atual.status == 'pago' %}
+                            <span class="payment-status-badge paragraph-xxs payd" style="background: #28A745;">PAGO</span>
+                        {% elseif mensalidade_atual.status == 'pendente' %}
+                            <span class="payment-status-badge paragraph-xxs pending" style="background: #E75D05; color: #000;">PENDENTE</span>
+                        {% else %}
+                            <span class="payment-status-badge paragraph-xxs overdue" style="background: #DC3545;">ATRASADO</span>
+                        {% endif %}
+                        {% if mensalidade_atual.status == 'pago' %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #28A745;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% elseif mensalidade_atual.status == 'pendente' %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #E75D05;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% else %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #DC3545;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- AULAS Section - 2/3 da largura no desktop -->
+        <div class="dashboard-section-classes">
+            <div class="dashboard-card-wrapper">
+                <div class="heading-2">Aulas</div>
+
+                <div class="dashboard-card-wrapper-row">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-header-infos">
+                                <h3 class="heading-3">Próxima Aula</h3>
+                                <span class="paragraph-sm">Informações sobre a aula</span>
+                            </div>
+
+                            <img class="card-icon" src="/assets/img/icons/drum.svg" alt="Próxima Aula">
+                        </div>
+                            
+                        <div class="class-info">
+                        <span class="paragraph-xl">Patú Sambá - Turma 1</span>
+                        <span class="paragraph-2xl" style="font-weight: 600;">Ter, 08/04/2025</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-header-infos">
+                                <h3 class="heading-3">Faltas</h3>
+                                <span class="paragraph-sm">Número e porcentagem</span>
+                            </div>
+
+                            <img class="card-icon" src="/assets/img/icons/square-check-big.svg" alt="Faltas">
+                        </div>
+                            
+                        <div class="attendance-info">
+                            <span class="paragraph-xl">Patú Sambá - Turma 1</span>
+                            <div class="attendance-bar-wrapper">
+                                <div class="attendance-bar">
+                                    <div class="attendance-progress" style="width: 0%;"></div>
+                                </div>
+                                <div class="attendance-text">1/14</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Notificações Section -->
+{% if notificacoes|length > 0 %}
+<div class="notifications-section">
+<div class="heading-2">Notificações</div>
+    
+<div class="notification-row">
+    {% for notificacao in notificacoes %}
+        <div class="notification-card">
+            <div class="notification-title">
+                {{ notificacao.titulo|upper }}
+                {% if notificacao.tipo == 'apresentacao' %}
+                    <img class="notification-icon" src="/assets/img/icons/music.svg" alt="Apresentação">
+                {% elseif notificacao.tipo == 'geral' %}
+                    <img class="notification-icon" src="/assets/img/icons/circle-dollar-sign.svg" alt="Geral">
+                {% endif %}
+            </div>
+            <div class="notification-content">
+                <img src="/assets/img/notifications/{{notificacao.imagem}}" alt="{{ notificacao.titulo }}" class="notification-image">
+
+                <div class="notification-text">
+                    {{ notificacao.texto }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %} 

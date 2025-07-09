@@ -1,0 +1,52 @@
+/* ===== RESPONSIVE CSS - Media Queries Gerais ===== */
+
+/* ===== TABLETS E MOBILE ===== */
+@media (max-width: 768px) {
+    .dashboard-card {
+        padding: 20px;
+    }
+    
+    .payment-amount {
+        font-size: 28px;
+    }
+    
+    .notification-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .notification-image {
+        width: 100%;
+        height: 120px;
+    }
+}
+
+/* ===== MOBILE PEQUENO ===== */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 100px 15px 15px;
+    }
+    
+    .dashboard-card {
+        padding: 16px;
+    }
+    
+    .card-header {
+        margin-bottom: 16px;
+    }
+    
+    .payment-amount {
+        font-size: 24px;
+    }
+}
+
+/* ===== DESKTOP GRANDE ===== */
+@media (min-width: 1400px) {
+    .content-wrapper {
+        max-width: 1400px;
+    }
+    
+    .dashboard-cards-container {
+        gap: 32px;
+    }
+} 

@@ -1,0 +1,110 @@
+{% extends "base.twig" %}
+
+{% block title %}Aulas - RITMIZE{% endblock %}
+
+{% block content %}
+<!-- Aulas Header -->
+<div class="aulas-header">
+    <h1 class="heading-2">AULAS</h1>
+</div>
+
+<!-- Dropdown de Turma -->
+<div class="turma-selector" style="margin-bottom: 40px;">
+    <label class="paragraph-lg" style="margin-bottom: 8px; display: block;">Turma</label>
+    <select class="turma-dropdown">
+        <option>Patú Sambá - Turma 1</option>
+        {% if turmas and turmas|length > 0 %}
+            {% for turma in turmas %}
+                <option value="{{ turma.id }}">{{ turma.nome }}</option>
+            {% endfor %}
+        {% endif %}
+    </select>
+</div>
+
+<!-- Cards de Informações das Aulas -->
+<div class="aulas-cards-container" style="margin-bottom: 40px;">
+    <!-- Card Próxima Aula -->
+    <div class="aula-card">
+        <div class="card-header">
+            <div class="card-header-infos">
+                <h3 class="heading-3">Próxima Aula</h3>
+                <span class="paragraph-sm">Informações sobre a aula</span>
+            </div>
+            <img class="card-icon" src="/assets/img/icons/drum.svg" alt="Próxima Aula">
+        </div>
+        
+        <div class="class-info">
+            <span class="paragraph-xl">Patú Sambá - Turma 1</span>
+            <span class="paragraph-2xl" style="font-weight: 600;">Ter, 08/04/2025</span>
+        </div>
+    </div>
+
+    <!-- Card Faltas -->
+    <div class="aula-card">
+        <div class="card-header">
+            <div class="card-header-infos">
+                <h3 class="heading-3">Faltas</h3>
+                <span class="paragraph-sm">Número e porcentagem</span>
+            </div>
+            <img class="card-icon" src="/assets/img/icons/square-check-big.svg" alt="Faltas">
+        </div>
+        
+        <div class="attendance-info">
+            <span class="paragraph-xl">Patú Sambá - Turma 1</span>
+            <div class="attendance-bar-wrapper">
+                <div class="attendance-bar">
+                    <div class="attendance-progress" style="width: 7%;"></div>
+                </div>
+                <div class="attendance-text">1/14</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Histórico de Frequência -->
+<div class="historico-section">
+    <div class="heading-3" style="margin-bottom: 16px;">Histórico de Frequência</div>
+    <p class="paragraph-md" style="color: var(--text-light); margin-bottom: 32px;">
+        Aqui você pode ver a frequência de todas as suas aulas
+    </p>
+
+    {% if presencas and presencas|length > 0 %}
+        <div class="historico-table">
+            <!-- Header da tabela -->
+            <div class="historico-header">
+                <div class="historico-col paragraph-2xl">Nome</div>
+                <div class="historico-col paragraph-2xl">Data</div>
+                <div class="historico-col paragraph-2xl">Horário</div>
+                <div class="historico-col paragraph-2xl">Presença</div>
+            </div>
+
+            <!-- Linhas da tabela -->
+            {% for presenca in presencas %}
+            <div class="historico-row">
+                <div class="historico-col">
+                    <span class="paragraph-lg">{{ presenca.nome }}</span>
+                </div>
+                <div class="historico-col">
+                    <span class="paragraph-lg">{{ presenca.data_aula|date('d/m/Y') }}</span>
+                </div>
+                <div class="historico-col">
+                    <span class="paragraph-lg">19h</span>
+                </div>
+                <div class="historico-col">
+                    {% if presenca.presente %}
+                        <img src="/assets/img/icons/check.svg" alt="Presente" >
+                    {% else %}
+                        <img src="/assets/img/icons/circle-x.svg" alt="Ausente" >
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+    <p class="paragraph-md" style="color: var(--text-light); margin-bottom: 32px;">
+        Não há dados para exibir
+    </p>
+    {% endif %}
+</div>
+
+{% endblock %} 

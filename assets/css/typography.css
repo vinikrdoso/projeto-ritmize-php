@@ -1,0 +1,226 @@
+/* ===== TYPOGRAPHY CSS - Estilos do Figma ===== */
+
+/* ===== DISPLAYS (BAHIANA) ===== */
+.display-1,
+.d1 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-d1);        /* 120px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.display-2,
+.d2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-d2);        /* 100px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.display-3,
+.d3 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-d3);        /* 80px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+/* ===== HEADINGS (BAHIANA) ===== */
+.heading-1,
+.h1 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h1);        /* 60px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.heading-2,
+.h2 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h2);        /* 50px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.heading-3,
+.h3 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h3);        /* 32px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.heading-4,
+.h4 {
+    font-family: var(--font-title);
+    font-size: var(--font-size-h4);        /* 24px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+/* ===== PARAGRAPHS (SORA) ===== */
+.paragraph-5xl,
+.p-5xl {
+    font-family: var(--font-body);
+    font-size: var(--font-size-5xl);        /* 48px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-4xl,
+.p-4xl {
+    font-family: var(--font-body);
+    font-size: var(--font-size-4xl);        /* 36px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-3xl,
+.p-3xl {
+    font-family: var(--font-body);
+    font-size: var(--font-size-3xl);        /* 30px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-2xl,
+.p-2xl {
+    font-family: var(--font-body);
+    font-size: var(--font-size-2xl);        /* 24px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-xl,
+.p-xl {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xl);         /* 20px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-lg,
+.p-lg {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);         /* 18px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-md,
+.p-md {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);         /* 16px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-sm,
+.p-sm {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);         /* 14px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-xs,
+.p-xs {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);         /* 12px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+.paragraph-xxs,
+.p-xxs {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xxs);        /* 10px */
+    font-weight: var(--font-weight-regular); /* regular */
+    line-height: var(--line-height-normal);  /* 24px */
+    letter-spacing: var(--letter-spacing-normal); /* 0 */
+}
+
+/* ===== VARIAÇÕES DE PESO ===== */
+.font-light { font-weight: var(--font-light); }
+.font-normal { font-weight: var(--font-normal); }
+.font-medium { font-weight: var(--font-medium); }
+.font-semibold { font-weight: var(--font-semibold); }
+.font-bold { font-weight: var(--font-bold); }
+
+/* ===== VARIAÇÕES DE COR ===== */
+.text-primary { color: var(--orange-1); }
+.text-secondary { color: var(--grey-1); }
+.text-success { color: var(--green-1); }
+.text-danger { color: var(--red-1); }
+.text-dark { color: var(--black); }
+.text-light { color: var(--grey-1); }
+.text-white { color: var(--white); }
+
+/* ===== APLICAÇÃO NOS ELEMENTOS HTML ===== */
+h1 { @extend .title-1; }
+h2 { @extend .title-2; }
+h3 { @extend .title-3; }
+h4 { @extend .title-4; }
+h5 { @extend .title-5; }
+h6 { @extend .title-6; }
+
+p { @extend .paragraph-medium; }
+
+/* ===== CLASSES ESPECÍFICAS DO SISTEMA ===== */
+.logo-text {
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+.card-title {
+    font-family: var(--font-title);
+    font-size: var(--text-lg);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+
+.nav-text {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+}
+
+.button-text {
+    font-family: var(--font-title);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+
+.caption {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+} 

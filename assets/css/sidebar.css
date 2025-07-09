@@ -1,0 +1,274 @@
+/* ===== SIDEBAR CSS - Desktop e Mobile ===== */
+
+/* Force reset de estilos Bootstrap para nav-item */
+.sidebar .nav-item,
+.mobile-sidebar .nav-item {
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.sidebar .nav-item.active,
+.mobile-sidebar .nav-item.active {
+    background-color: var(--black) !important;
+}
+
+/* ===== SIDEBAR DESKTOP ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--orange-1);
+    color: var(--white);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 60px 16px 40px 16px;
+}
+
+.sidebar-header {
+    margin-bottom: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: var(--font-title);
+}
+
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 12px;
+    color: var(--black) !important;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: transparent !important;
+}
+
+.nav-item:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--black) !important;
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--black) !important;
+    color: var(--white) !important;
+}
+
+/* Estilos para ícones SVG (desktop e mobile) */
+.nav-item img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) saturate(100%);
+    transition: filter 0.3s ease;
+}
+
+.nav-item.active img {
+    filter: brightness(0) saturate(100%) invert(100%);
+}
+
+
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* Estilos específicos para item de perfil */
+.sidebar-footer .nav-item,
+.mobile-user-profile .nav-item {
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--white) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+}
+
+.sidebar-footer .nav-item:hover:not(.active),
+.mobile-user-profile .nav-item:hover:not(.active) {
+    background: var(--white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-footer .nav-item.active,
+.mobile-user-profile .nav-item.active {
+    background: var(--black) !important;
+    border: 1px solid var(--black);
+}
+
+/* Informações do usuário */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-info span {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.user-info small {
+    color: var(--text-light) !important;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.sidebar-footer .nav-item.active .user-info span,
+.mobile-user-profile .nav-item.active .user-info span {
+    color: var(--white) !important;
+    font-weight: 600;
+}
+
+.sidebar-footer .nav-item.active .user-info small,
+.mobile-user-profile .nav-item.active .user-info small {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Avatar do usuário */
+.nav-item .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-gray);
+    transition: all 0.3s ease;
+    filter: none !important;
+}
+
+.nav-item.active .user-avatar {
+    border: 2px solid var(--white);
+    filter: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== MOBILE HEADER & SIDEBAR ===== */
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--orange-1);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    z-index: 1001;
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1010;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 350px;
+    height: 100vh;
+    background: var(--orange-1);
+    color: var(--white);
+    z-index: 1020;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 16px 40px 16px;
+}
+
+.mobile-sidebar.show {
+    transform: translateX(350px);
+}
+
+.mobile-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    align-items: start;
+
+}
+
+.mobile-close-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Estilos específicos para navegação mobile */
+.mobile-nav .nav-item {
+    background: transparent !important;
+    color: var(--black) !important;
+}
+
+.mobile-nav .nav-item:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--black) !important;
+    transform: translateX(5px);
+}
+
+.mobile-nav .nav-item.active {
+    background: var(--black) !important;
+    color: var(--white) !important;
+}
+
+.mobile-user-profile {
+    margin-top: auto;
+} 

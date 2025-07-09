@@ -1,0 +1,43 @@
+# Dependências do Composer
+/vendor/
+
+# Arquivos de configuração sensíveis
+.env
+config.php
+database.php
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.cache
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads de usuário (se houver)
+uploads/
+temp/
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de sessão
+sessions/
+
+# Arquivos de cache do PHP
+*.cache
+
+# Arquivos de configuração do servidor
+.htaccess.backup 

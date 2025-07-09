@@ -1,0 +1,28 @@
+# Arquivos de texto que devem ser normalizados
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.twig text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Arquivos binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+
+# Arquivos que devem ser ignorados pelo diff
+*.log -diff
+*.cache -diff
+*.tmp -diff 

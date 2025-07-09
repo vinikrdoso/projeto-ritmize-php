@@ -1,0 +1,38 @@
+/* ===== MAIN CSS - Organizador de Todos os Arquivos ===== */
+
+/* ===== ESTILOS BASE ===== */
+@import 'base.css';          /* Variáveis, reset e estilos globais */
+@import 'typography.css';    /* Sistema tipográfico do Figma */
+
+/* ===== COMPONENTES COMUNS ===== */
+@import 'sidebar.css';       /* Sidebar desktop e mobile */
+@import 'cards.css';         /* Cards reutilizáveis */
+
+/* ===== PÁGINAS ESPECÍFICAS ===== */
+@import 'login.css';         /* Página de login */
+@import 'dashboard.css';     /* Página dashboard */
+@import 'aulas.css';         /* Página de aulas */
+@import 'financeiro.css';    /* Página financeira */
+@import 'perfil.css';        /* Página de perfil */
+
+/* ===== RESPONSIVIDADE ===== */
+@import 'responsive.css';    /* Media queries gerais */
+
+/* ===== NOTAS SOBRE ORGANIZAÇÃO =====
+
+COMO USAR:
+1. Inclua apenas main.css nos seus templates
+2. Para páginas específicas, pode incluir apenas os arquivos necessários
+
+EXEMPLO DE USO MODULAR:
+- Login: base.css + login.css + responsive.css
+- Dashboard: base.css + sidebar.css + cards.css + dashboard.css + responsive.css
+- Aulas: base.css + sidebar.css + cards.css + aulas.css + responsive.css
+
+BENEFÍCIOS:
+- Performance: carrega apenas CSS necessário
+- Organização: cada página tem seu próprio arquivo
+- Manutenção: fácil localizar e editar estilos específicos
+- Reutilização: componentes como cards e sidebar podem ser usados em qualquer lugar
+
+==================================================== */ 

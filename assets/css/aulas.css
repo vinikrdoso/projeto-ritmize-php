@@ -1,0 +1,345 @@
+/* ===== AULAS CSS - Específico da Página de Aulas ===== */
+
+.aulas-header {
+    margin-bottom: 30px;
+}
+
+.aulas-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.workshop-selector {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+}
+
+.selector-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.workshop-select {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--border-gray);
+    border-radius: 12px;
+    font-size: 16px;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.workshop-select:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.next-class-card {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, #E55A2B 100%);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.next-class-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.next-class-date {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.next-class-time {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.attendance-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.attendance-stat {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attendance-history {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+}
+
+.history-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+
+.history-date {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.history-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.history-status.present {
+    background: var(--success-green);
+    color: var(--white);
+}
+
+.history-status.absent {
+    background: #FF6B6B;
+    color: var(--white);
+}
+
+/* ===== DROPDOWN DE TURMA ===== */
+.turma-selector {
+    margin-bottom: 40px;
+}
+
+.turma-dropdown {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    background: var(--white);
+    font-size: 16px;
+    color: var(--text-dark);
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+.turma-dropdown:focus {
+    outline: none;
+    border-color: var(--orange-1);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* ===== CARDS DE AULAS ===== */
+.aulas-cards-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.aula-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    flex: 1;
+}
+
+/* ===== SEÇÃO DO HISTÓRICO ===== */
+.historico-section {
+    margin-bottom: 40px;
+}
+
+/* ===== TABELA DO HISTÓRICO ===== */
+.historico-table {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    overflow: hidden;
+}
+
+.historico-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background: var(--grey-2);
+    padding: 16px 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.historico-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-gray);
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.historico-row:last-child {
+    border-bottom: none;
+}
+
+.historico-row:nth-child(even) {
+    background: #FAFAFA;
+}
+
+.historico-row:hover {
+    background: var(--orange-3);
+}
+
+.historico-col {
+    display: flex;
+    align-items: center;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .aulas-cards-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .aula-card {
+        height: auto;
+        min-height: 150px;
+    }
+    
+    .turma-dropdown {
+        max-width: 100%;
+    }
+    
+    .historico-header,
+    .historico-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: left;
+    }
+    
+    .historico-header {
+        display: none; /* Esconder header no mobile */
+    }
+    
+    .historico-row {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .historico-col {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .historico-col::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-dark);
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aulas-cards-container {
+        gap: 16px;
+    }
+    
+    .aula-card {
+        padding: 16px;
+    }
+    
+    .historico-table {
+        margin: 0 -16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .historico-row {
+        padding: 16px;
+    }
+}
+
+/* ===== RESPONSIVO AULAS ===== */
+@media (max-width: 768px) {
+    .aulas-header h1 {
+        font-size: 24px;
+    }
+    
+    .attendance-overview {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .next-class-date {
+        font-size: 28px;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+} 

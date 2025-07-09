@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block title %}Perfil - RITMIZE{% endblock %}
+
+{% block content %}
+<!-- Perfil Header -->
+<div class="perfil-header">
+    <h1 class="heading-2">PERFIL</h1>
+</div>
+
+<!-- Perfil Card Central -->
+<div class="perfil-container">
+    <div class="perfil-card">
+        <!-- Foto do Perfil -->
+        <div class="perfil-avatar">
+            {% if aluno.foto_perfil %}
+                <img src="/assets/img/avatars/{{ aluno.foto_perfil }}" alt="{{ aluno.nome }}" class="avatar-img">
+            {% else %}
+                <img src="/assets/img/avatars/default-avatar.svg" alt="Avatar padrão" class="avatar-img">
+            {% endif %}
+        </div>
+
+        <!-- Informações do Perfil -->
+        <div class="perfil-info">
+            <div class="perfil-field">
+                <label class="paragraph-lg">Nome:</label>
+                <span class="paragraph-xl">{{ aluno.nome }}</span>
+            </div>
+
+            <div class="perfil-field">
+                <label class="paragraph-lg">Email:</label>
+                <span class="paragraph-xl">{{ aluno.email }}</span>
+
+            </div>
+
+            <div class="perfil-field">
+                <label class="paragraph-lg">Data de Nascimento:</label>
+                <span class="paragraph-xl">{{ aluno.data_nascimento|date('d/m/Y') }}</span>
+            </div>
+        </div>
+
+        <!-- Botão de Logout -->
+        <div class="perfil-actions">
+            <button class="logout-btn button-text" onclick="window.location.href='logout.php'">
+                sair
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

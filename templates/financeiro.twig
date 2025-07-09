@@ -1,0 +1,99 @@
+{% extends "base.twig" %}
+
+{% block title %}Financeiro - RITMIZE{% endblock %}
+
+{% block content %}
+<!-- Financeiro Header -->
+<div class="financeiro-header">
+    <h1 class="heading-2">FINANCEIRO</h1>
+</div>
+
+<!-- Card da Mensalidade -->
+<div class="dashboard-section-payments" style="max-width: 400px; margin-bottom: 40px;">
+    <div class="dashboard-card-wrapper">
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-header-infos">
+                    <h3 class="heading-3">Mensalidade</h3>
+                    <span class="paragraph-sm">Status do pagamento</span>
+                </div>
+
+                <img class="card-icon" src="/assets/img/icons/circle-dollar-sign.svg" alt="Pagamento">
+            </div>
+                    
+            {% if mensalidade_atual %}
+            <div class="payment-status-wrapper">
+                {% if mensalidade_atual.status == 'pago' %}
+                    <span class="payment-status-badge paragraph-xxs payd" style="background: #28A745;">PAGO</span>
+                {% elseif mensalidade_atual.status == 'pendente' %}
+                    <span class="payment-status-badge paragraph-xxs pending" style="background: #E75D05; color: #000;">PENDENTE</span>
+                {% else %}
+                    <span class="payment-status-badge paragraph-xxs overdue" style="background: #DC3545;">ATRASADO</span>
+                {% endif %}
+                {% if mensalidade_atual.status == 'pago' %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #28A745;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% elseif mensalidade_atual.status == 'pendente' %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #E75D05;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% else %}
+                        <span class="paragraph-4xl payment-status-value" style="color: #DC3545;">€{{ mensalidade_atual.valor_final|number_format(2, ',', '.') }}</span>
+                        {% endif %}            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Histórico de Mensalidades -->
+<div class="historico-section">
+    <div class="heading-3" style="margin-bottom: 16px;">Histórico de Mensalidades</div>
+    <p class="paragraph-md" style="color: var(--text-light); margin-bottom: 32px;">
+        Aqui você pode ver todas as mensalidades desde que você começou a ter aulas
+    </p>
+
+    {% if mensalidades and mensalidades|length > 0 %}
+        <div class="historico-table">
+            <!-- Header da tabela -->
+            <div class="historico-header">
+                <div class="historico-col paragraph-2xl">Status</div>
+                <div class="historico-col paragraph-2xl">Data</div>
+                <div class="historico-col paragraph-2xl">Valor</div>
+                <div class="historico-col paragraph-2xl">Ação</div>
+            </div>
+
+            <!-- Linhas da tabela -->
+            {% for mensalidade in mensalidades %}
+            <div class="historico-row">
+                <div class="historico-col">
+                    {% if mensalidade.status == 'pago' %}
+                        <span class="status-badge status-pago">Pago</span>
+                    {% elseif mensalidade.status == 'pendente' %}
+                        <span class="status-badge status-pendente">Pendente</span>
+                    {% else %}
+                        <span class="status-badge status-atrasado">Atrasado</span>
+                    {% endif %}
+                </div>
+                <div class="historico-col">
+                    <span class="paragraph-lg">{{ mensalidade.mes_referencia|date('F/Y')|replace({'January': 'Janeiro', 'February': 'Fevereiro', 'March': 'Março', 'April': 'Abril', 'May': 'Maio', 'June': 'Junho', 'July': 'Julho', 'August': 'Agosto', 'September': 'Setembro', 'October': 'Outubro', 'November': 'Novembro', 'December': 'Dezembro'}) }}</span>
+                </div>
+                <div class="historico-col">
+                    <span class="paragraph-lg">€{{ mensalidade.valor_final|number_format(2, ',', '.') }}</span>
+                </div>
+                <div class="historico-col">
+                    {% if mensalidade.status == 'pago' %}
+                        <button class="action-btn action-ver">VER</button>
+                    {% else %}
+                        <button class="action-btn action-pagar">PAGAR</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="historico-vazio">
+            <p class="paragraph-lg" style="color: var(--text-light); text-align: center;">
+                Nenhuma mensalidade encontrada.
+            </p>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %} 

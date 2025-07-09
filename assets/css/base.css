@@ -1,0 +1,144 @@
+/* ===== BASE CSS - Variáveis e Estilos Globais ===== */
+
+/* ===== GOOGLE FONTS IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+    /* ===== ORANGE TOKENS ===== */
+    --orange-1: #E85D04;
+    --orange-2: #ED7D36;
+    --orange-3: #F19E68;
+    --orange-4: #F6BE9B;
+    --orange-5: #FDEFE6;
+    
+    /* ===== BLACK/GREY/WHITE TOKENS ===== */
+    --black: #1B1B1B;
+    --grey-1: #555555;
+    --grey-2: #D5D5D5;
+    --grey-3: #EAEAEA;
+    --grey-4: #F4F4F4;
+    --grey-5: #F9F9F9;
+    --white: #FFFFFF;
+    
+    /* ===== RED TOKENS ===== */
+    --red-1: #B90009;
+    --red-2: #E7000B;
+    --red-3: #E91A23;
+    --red-4: #EE4D54;
+    --red-5: #F38085;
+    
+    /* ===== GREEN TOKENS ===== */
+    --green-1: #00A140;
+    --green-2: #00C950;
+    --green-3: #1ACE62;
+    --green-4: #4DD985;
+    --green-5: #80E4A8;
+    
+    /* ===== TYPOGRAPHY TOKENS ===== */
+    --font-title: 'Bahiana', cursive;
+    --font-body: 'Sora', sans-serif;
+    
+    /* ===== FONT SIZE TOKENS ===== */
+    /* Display */
+    --font-size-d1: 7.5rem;    /* 120px */
+    --font-size-d2: 6.25rem;   /* 100px */
+    --font-size-d3: 5rem;      /* 80px */
+    
+    /* Heading */
+    --font-size-h1: 3.75rem;   /* 60px */
+    --font-size-h2: 3.125rem;  /* 50px */
+    --font-size-h3: 2rem;      /* 32px */
+    --font-size-h4: 1.5rem;    /* 24px */
+    
+    /* Paragraphs */
+    --font-size-5xl: 3rem;     /* 48px */
+    --font-size-4xl: 2.25rem;  /* 36px */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-2xl: 1.5rem;   /* 24px */
+    --font-size-xl: 1.25rem;   /* 20px */
+    --font-size-lg: 1.125rem;  /* 18px */
+    --font-size-md: 1rem;      /* 16px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-xxs: 0.625rem; /* 10px */
+    
+    /* ===== FONT WEIGHT TOKENS ===== */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    
+    /* ===== LETTER SPACING TOKENS ===== */
+    --letter-spacing-normal: 0;
+    
+    /* ===== LINE HEIGHT TOKENS ===== */
+    --line-height-normal: 1.5rem;  /* 24px */
+    
+    /* ===== LAYOUT TOKENS ===== */
+    --sidebar-width: 260px;
+    
+    /* ===== SEMANTIC TOKENS (usando os color tokens) ===== */
+    --primary-orange: var(--orange-1);
+    --dark-bg: var(--black);
+    --light-gray: var(--grey-5);
+    --bg-gray: var(--grey-4);
+    --border-gray: var(--grey-3);
+    --text-dark: var(--black);
+    --text-light: var(--grey-1);
+    --success-green: var(--green-1);
+    --error-red: var(--red-2);
+    --warning-yellow: #FFC107;
+    
+    /* ===== FONT FAMILY SHORTCUTS ===== */
+    --font-family: var(--font-body);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--light-gray);
+    overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY STYLES ===== */
+h1, h2, h3, h4, h5, h6,
+.title,
+.logo,
+.dashboard-header h1,
+.card-title,
+.notifications-section h2 {
+    font-family: var(--font-title);
+}
+
+p, span, div, a, button, input, textarea,
+.nav-item,
+.user-name,
+.payment-status,
+.notification-text,
+.class-date,
+.attendance-text {
+    font-family: var(--font-body);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    padding: 72px;
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+        padding: 100px 16px 16px;
+    }
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+} 
