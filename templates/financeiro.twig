@@ -61,7 +61,7 @@
 
             <!-- Linhas da tabela -->
             {% for mensalidade in mensalidades %}
-            <div class="historico-row">
+            <div class="historico-row"{% if mensalidade.status == 'pago' and mensalidade.data_pagamento %} data-pago-em="{{ mensalidade.data_pagamento|date('d/m/Y') }}"{% endif %}>
                 <div class="historico-col">
                     {% if mensalidade.status == 'pago' %}
                         <span class="status-badge status-pago">Pago</span>
@@ -96,4 +96,21 @@
     {% endif %}
 </div>
 
+{# Modal de Detalhes da Mensalidade #}
+<div id="modal-mensalidade" class="modal-mensalidade-overlay" style="display:none;">
+  <div class="modal-mensalidade">
+    <div class=" heading-3 modal-mensalidade-header">DADOS SOBRE SUA MENSALIDADE</div>
+    <div class="modal-mensalidade-body">
+      <div class="modal-mensalidade-row">
+        <span>Mensalidade</span>
+        <span id="modal-mes-referencia"></span>
+      </div>
+      <div class="modal-mensalidade-row">
+        <span>Pago em</span>
+        <span id="modal-pago-em"></span>
+      </div>
+    </div>
+    <button class="action-btn action-ver" onclick="fecharModalMensalidade()">FECHAR</button>
+  </div>
+</div>
 {% endblock %} 

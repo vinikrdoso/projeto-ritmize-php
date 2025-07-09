@@ -116,3 +116,52 @@ window.ritmize = {
   formatDate,
   showNotification,
 };
+
+// ===== MODAL MENSALIDADE =====
+function abrirModalMensalidade(mesReferencia, pagoEm) {
+  const modal = document.getElementById("modal-mensalidade");
+  document.getElementById("modal-mes-referencia").textContent = mesReferencia;
+  document.getElementById("modal-pago-em").textContent = pagoEm;
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function fecharModalMensalidade() {
+  const modal = document.getElementById("modal-mensalidade");
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// Delegação de evento para botões VER
+if (document.addEventListener) {
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".action-ver").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        // Pega a linha da mensalidade
+        const row = btn.closest(".historico-row");
+        const mes = row
+          .querySelector(".historico-col:nth-child(2) span")
+          .textContent.trim();
+        // Busca a data de pagamento (pode ser um atributo data ou coluna oculta)
+        let pagoEm = row.getAttribute("data-pago-em") || "";
+        if (!pagoEm) {
+          // Tenta buscar em um span oculto
+          const pagoEmSpan = row.querySelector(".pago-em-hidden");
+          if (pagoEmSpan) pagoEm = pagoEmSpan.textContent.trim();
+        }
+        abrirModalMensalidade(mes, pagoEm);
+      });
+    });
+    // Fechar modal ao clicar no overlay
+    document
+      .getElementById("modal-mensalidade")
+      .addEventListener("click", function (e) {
+        if (e.target === this) fecharModalMensalidade();
+      });
+    // Fechar modal com ESC
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") fecharModalMensalidade();
+    });
+  });
+}
