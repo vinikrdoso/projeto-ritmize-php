@@ -50,16 +50,14 @@
     </p>
 
     {% if mensalidades and mensalidades|length > 0 %}
-        <div class="historico-table">
-            <!-- Header da tabela -->
+        <!-- DESKTOP: Tabela -->
+        <div class="historico-table d-none d-md-block">
             <div class="historico-header">
                 <div class="historico-col paragraph-2xl">Status</div>
                 <div class="historico-col paragraph-2xl">Data</div>
                 <div class="historico-col paragraph-2xl">Valor</div>
                 <div class="historico-col paragraph-2xl">Ação</div>
             </div>
-
-            <!-- Linhas da tabela -->
             {% for mensalidade in mensalidades %}
             <div class="historico-row"{% if mensalidade.status == 'pago' and mensalidade.data_pagamento %} data-pago-em="{{ mensalidade.data_pagamento|date('d/m/Y') }}"{% endif %}>
                 <div class="historico-col">
@@ -82,6 +80,41 @@
                         <button class="action-btn action-ver">VER</button>
                     {% else %}
                         <button class="action-btn action-pagar">PAGAR</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- MOBILE: Cards -->
+        <div class="historico-cards d-block d-md-none">
+            {% for mensalidade in mensalidades %}
+            <div class="historico-card">
+                <div class="historico-card-status">
+                    {% if mensalidade.status == 'pago' %}
+                        <span class="status-badge status-pago">Pago</span>
+                    {% elseif mensalidade.status == 'pendente' %}
+                        <span class="status-badge status-pendente">Pendente</span>
+                    {% else %}
+                        <span class="status-badge status-atrasado">Atrasado</span>
+                    {% endif %}
+                </div>
+                <div class="historico-card-info">
+                    <div class="historico-card-row">
+                        <span>Data</span>
+                        <span>{{ mensalidade.mes_referencia|date('F/Y')|replace({'January': 'Janeiro', 'February': 'Fevereiro', 'March': 'Março', 'April': 'Abril', 'May': 'Maio', 'June': 'Junho', 'July': 'Julho', 'August': 'Agosto', 'September': 'Setembro', 'October': 'Outubro', 'November': 'Novembro', 'December': 'Dezembro'}) }}</span>
+                    </div>
+                    <hr class="historico-card-separator" />
+                    <div class="historico-card-row">
+                        <span>Valor</span>
+                        <span>€{{ mensalidade.valor_final|number_format(2, ',', '.') }}</span>
+                    </div>
+                </div>
+                <div class="historico-card-action">
+                    {% if mensalidade.status == 'pago' %}
+                        <button class="action-btn action-ver historico-card-btn" data-mes="{{ mensalidade.mes_referencia|date('F/Y')|replace({'January': 'Janeiro', 'February': 'Fevereiro', 'March': 'Março', 'April': 'Abril', 'May': 'Maio', 'June': 'Junho', 'July': 'Julho', 'August': 'Agosto', 'September': 'Setembro', 'October': 'Outubro', 'November': 'Novembro', 'December': 'Dezembro'}) }}" data-pago-em="{{ mensalidade.data_pagamento ? mensalidade.data_pagamento|date('d/m/Y') : '' }}">VER</button>
+                    {% else %}
+                        <button class="action-btn action-pagar historico-card-btn">PAGAR</button>
                     {% endif %}
                 </div>
             </div>

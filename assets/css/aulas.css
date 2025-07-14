@@ -343,3 +343,30 @@
         font-size: 32px;
     }
 } 
+
+/* ===== FORÇAR TABELA NO MOBILE NA PÁGINA DE AULAS ===== */
+@media (max-width: 768px) {
+  .historico-header,
+  .historico-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    gap: 0 !important;
+    text-align: left;
+  }
+  .historico-header {
+    display: grid !important;
+  }
+  .historico-row {
+    display: grid !important;
+    flex-direction: unset !important;
+    align-items: center !important;
+    padding: 16px 8px !important;
+  }
+  .historico-col {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .historico-col::before {
+    content: none !important;
+  }
+} 

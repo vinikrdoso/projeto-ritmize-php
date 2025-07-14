@@ -69,16 +69,14 @@
     </p>
 
     {% if presencas and presencas|length > 0 %}
-        <div class="historico-table">
-            <!-- Header da tabela -->
+        <!-- DESKTOP: Tabela -->
+        <div class="historico-table d-none d-md-block">
             <div class="historico-header">
                 <div class="historico-col paragraph-2xl">Nome</div>
                 <div class="historico-col paragraph-2xl">Data</div>
                 <div class="historico-col paragraph-2xl">Horário</div>
                 <div class="historico-col paragraph-2xl">Presença</div>
             </div>
-
-            <!-- Linhas da tabela -->
             {% for presenca in presencas %}
             <div class="historico-row">
                 <div class="historico-col">
@@ -96,6 +94,36 @@
                     {% else %}
                         <img src="/assets/img/icons/circle-x.svg" alt="Ausente" >
                     {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- MOBILE: Cards -->
+        <div class="historico-cards d-block d-md-none">
+            {% for presenca in presencas %}
+            <div class="historico-card">
+                <div class="historico-card-info">
+                    <div class="historico-card-row">
+                        <span>Nome</span>
+                        <span>{{ presenca.nome }}</span>
+                    </div>
+                    <hr class="historico-card-separator" />
+                    <div class="historico-card-row">
+                        <span>Data</span>
+                        <span>{{ presenca.data_aula|date('d/m/Y') }}</span>
+                    </div>
+                    <div class="historico-card-row">
+                        <span>Horário</span>
+                        <span>19h</span>
+                    </div>
+                    <div class="historico-card-row">
+                        <span>Presença</span>
+                        {% if presenca.presente %}
+                            <img src="/assets/img/icons/check.svg" alt="Presente" style="height: 22px;" >
+                        {% else %}
+                            <img src="/assets/img/icons/circle-x.svg" alt="Ausente" style="height: 22px;" >
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}

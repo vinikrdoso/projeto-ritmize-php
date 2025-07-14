@@ -138,15 +138,20 @@ if (document.addEventListener) {
     document.querySelectorAll(".action-ver").forEach(function (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
-        // Pega a linha da mensalidade
+        // MOBILE: Se for card, pega dos atributos
+        if (btn.classList.contains("historico-card-btn")) {
+          const mes = btn.getAttribute("data-mes") || "";
+          const pagoEm = btn.getAttribute("data-pago-em") || "";
+          abrirModalMensalidade(mes, pagoEm);
+          return;
+        }
+        // DESKTOP: Pega da tabela
         const row = btn.closest(".historico-row");
         const mes = row
           .querySelector(".historico-col:nth-child(2) span")
           .textContent.trim();
-        // Busca a data de pagamento (pode ser um atributo data ou coluna oculta)
         let pagoEm = row.getAttribute("data-pago-em") || "";
         if (!pagoEm) {
-          // Tenta buscar em um span oculto
           const pagoEmSpan = row.querySelector(".pago-em-hidden");
           if (pagoEmSpan) pagoEm = pagoEmSpan.textContent.trim();
         }
