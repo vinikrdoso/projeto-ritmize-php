@@ -4,7 +4,6 @@
 # Arquivos de configuração sensíveis
 .env
 config.php
-database.php
 
 # Permitir arquivo de banco de dados do projeto
 !database.sql
